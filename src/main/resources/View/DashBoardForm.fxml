@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.DashBoardFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="656.0" prefWidth="885.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+   <children>
+      <ImageView fitHeight="656.0" fitWidth="885.0" layoutX="-7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/dashBorde2.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="26.0" layoutY="32.0" prefHeight="100.0" prefWidth="580.0" text="E &amp; E Service Center (PVT)Ltd." textFill="#030703c4">
+         <font>
+            <Font name="Baskerville Old Face" size="42.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailTex" layoutX="164.0" layoutY="165.0" prefHeight="39.0" prefWidth="284.0" promptText="Email">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="passwordTex" layoutX="164.0" layoutY="241.0" prefHeight="39.0" prefWidth="284.0" promptText="Password">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <JFXButton contentDisplay="TOP" layoutX="164.0" layoutY="317.0" onAction="#adminButtonOnAction" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #697689; -fx-background-radius: 8;" text="Admin" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="353.0" layoutY="317.0" onAction="#emplyeeButtonOnAction" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: #1D6F68; -fx-background-radius: 8;" text="Employee" textAlignment="CENTER" AnchorPane.bottomAnchor="298.0" AnchorPane.leftAnchor="353.0" AnchorPane.rightAnchor="437.0" AnchorPane.topAnchor="317.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <rotationAxis>
+            <Point3D x="100.0" y="100.0" z="100.0" />
+         </rotationAxis>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </JFXButton>
+   </children>
 </AnchorPane>
