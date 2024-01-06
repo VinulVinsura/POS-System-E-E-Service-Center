@@ -28,6 +28,7 @@ public class DashBoardFormController {
         Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, actionEvent -> timeLble.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:MM:SS")))), new KeyFrame(Duration.seconds(1)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+        //live Time
     }
 
 
