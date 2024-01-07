@@ -3,14 +3,16 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="656.0" prefWidth="885.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
+<AnchorPane fx:id="pane1" prefHeight="656.0" prefWidth="885.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFormController">
    <children>
       <ImageView fitHeight="656.0" fitWidth="885.0" layoutX="-7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -51,5 +53,7 @@
             <Font size="25.0" />
          </font>
       </Label>
+      <PasswordField fx:id="passwordTexHidde" layoutX="164.0" layoutY="241.0" prefHeight="39.0" prefWidth="284.0" promptText="password" />
+      <CheckBox fx:id="chekBox" layoutX="467.0" layoutY="241.0" mnemonicParsing="false" onAction="#chekBokOnAction" prefHeight="30.0" prefWidth="144.0" text="Show Password" />
    </children>
 </AnchorPane>
