@@ -54,6 +54,6 @@
          </font>
       </Label>
       <PasswordField fx:id="passwordTexHidde" layoutX="164.0" layoutY="241.0" prefHeight="39.0" prefWidth="284.0" promptText="password" />
-      <CheckBox fx:id="chekBox" layoutX="467.0" layoutY="241.0" mnemonicParsing="false" onAction="#chekBokOnAction" prefHeight="30.0" prefWidth="144.0" text="Show Password" />
+      <CheckBox fx:id="chekBox" layoutX="467.0" layoutY="241.0" mnemonicParsing="false" onAction="#chekBokOnAction" onMouseDragEntered="#chekBokOnAction2" prefHeight="30.0" prefWidth="144.0" text="Show Password" />
    </children>
 </AnchorPane>

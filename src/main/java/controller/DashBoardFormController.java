@@ -10,6 +10,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -68,5 +69,9 @@ public class DashBoardFormController {
         passwordTexHidde.setVisible(true);
         passwordTex.setVisible(false);
         return passwordTexHidde.getText();
+    }
+
+    public void chekBokOnAction2(MouseDragEvent mouseDragEvent) {
+
     }
 }

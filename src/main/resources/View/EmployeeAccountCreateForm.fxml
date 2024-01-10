@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeAccountCreateFormController">
+   <children>
+      <ImageView fx:id="texEmail" fitHeight="730.0" fitWidth="937.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/img5.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="164.0" layoutY="135.0" prefHeight="37.0" prefWidth="84.0" text="Name*" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="164.0" layoutY="242.0" prefHeight="37.0" prefWidth="84.0" text="E-mail*" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="texName" layoutX="164.0" layoutY="178.0" prefHeight="43.0" prefWidth="394.0" />
+      <TextField fx:id="texEmail2" layoutX="164.0" layoutY="279.0" prefHeight="43.0" prefWidth="394.0" />
+      <TextField fx:id="texPhone" layoutX="164.0" layoutY="383.0" prefHeight="43.0" prefWidth="268.0" />
+      <Label layoutX="164.0" layoutY="343.0" prefHeight="29.0" prefWidth="84.0" text="Phone*" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="employeeID" layoutX="769.0" layoutY="52.0" prefHeight="60.0" prefWidth="116.0" text="Label" textFill="#fff4f4">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="633.0" layoutY="482.0" mnemonicParsing="false" onAction="#submitButtonOnAction" prefHeight="43.0" prefWidth="84.0" style="-fx-background-radius: 8;" text="Submit" />
+      <Label layoutX="164.0" layoutY="441.0" prefHeight="21.0" prefWidth="84.0" text="Password*" textFill="#f5efef">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="texPassword" layoutX="164.0" layoutY="482.0" prefHeight="43.0" prefWidth="268.0" />
+   </children>
+</AnchorPane>

@@ -23,12 +23,12 @@ public class Employee {
     private String employee_Name;
     private String password;
     private String email;
-    private int phone_Num;
+    private String phone_Num;
 
     @OneToMany(mappedBy = "employee")
     private List<Orders>ordersList=new ArrayList<>();
 
-    public Employee(String employee_ID, String employee_Name, String password, String email, int phone_Num) {
+    public Employee(String employee_ID, String employee_Name, String password, String email, String phone_Num) {
         this.employee_ID = employee_ID;
         this.employee_Name = employee_Name;
         this.password = password;
