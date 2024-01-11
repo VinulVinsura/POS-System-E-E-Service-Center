@@ -23,8 +23,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public List<Employee> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+        Session session = Hibernate.getSession();
+        Query query = session.createQuery("FROM Employee ");
+        List<Employee> list = query.list();
+        return list;
     }
+
 
     @Override
     public boolean update(Employee entity) {
@@ -38,10 +42,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public Employee getLastEmployee() {
-        System.out.println("1st done");
+
         Session session = Hibernate.getSession();
         Query query = session.createQuery("FROM Employee E ORDER BY E.employee_ID DESC");
-        System.out.println("2nd done");
+
         List<Employee> list = query.list();
         for (Employee employee:list) {
             return new Employee(employee.getEmployee_ID(),

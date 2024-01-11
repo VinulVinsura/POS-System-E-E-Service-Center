@@ -1,15 +1,15 @@
 package controller;
 
+import bo.EmployeeBo;
+import bo.Impl.EmployeeBoImpl;
+import dto.EmployeeDto;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.text.CollationElementIterator;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class DashBoardFormController {
 
@@ -29,6 +30,7 @@ public class DashBoardFormController {
     public AnchorPane pane1;
     public PasswordField passwordTexHidde;
     public CheckBox chekBox;
+    private EmployeeBo employeeBo=new EmployeeBoImpl();
 
     public void initialize(){
         calulatTime();
@@ -55,7 +57,26 @@ public class DashBoardFormController {
     }
 
     public void emplyeeButtonOnAction(ActionEvent actionEvent) {
+        List<EmployeeDto> employeeList = employeeBo.getAllEmployee();
+        boolean isFind=false;
+        for (EmployeeDto dto:employeeList) {
+            System.out.println("1st");
+            if (dto.getEmail().equals(emailTex.getText()) && dto.getPassword().equals(passwordTex.getText()) && dto.getPassword().equals(passwordTexHidde.getText())){
+                isFind=true;
+                System.out.println("2nd");
+                Stage stage= (Stage)pane1.getScene().getWindow();
+                try {
+                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/EmployeeForm.fxml"))));
+                    stage.show();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
+        }
+        if (!isFind){
+            new Alert(Alert.AlertType.ERROR,"INVALID EMAIL OR PASSWORD...").show();
+        }
     }
 
     public String chekBokOnAction(ActionEvent actionEvent) {

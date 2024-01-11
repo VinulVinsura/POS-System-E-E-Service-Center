@@ -5,6 +5,12 @@ import dao.Custm.EmployeeDao;
 import dao.Custm.Impl.EmployeeDaoImpl;
 import dto.EmployeeDto;
 import entity.Employee;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeBoImpl implements EmployeeBo {
     private EmployeeDao employeeDao=new EmployeeDaoImpl();
@@ -30,5 +36,31 @@ public class EmployeeBoImpl implements EmployeeBo {
             return "E001";
         }
 
+    }
+
+    @Override
+    public boolean updateEmployee(String employeID) {
+
+        return false;
+    }
+
+    @Override
+    public List<EmployeeDto> getAllEmployee() {
+        try {
+            List<Employee> list = employeeDao.getAll();
+            List<EmployeeDto> dtoList=new ArrayList<>();
+            for (Employee employee:list) {
+                dtoList.add(new EmployeeDto(employee.getEmployee_ID(),
+                        employee.getEmployee_Name(),
+                        employee.getPassword(),
+                        employee.getEmail(),
+                        employee.getPhone_Num()));
+            }
+            return dtoList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

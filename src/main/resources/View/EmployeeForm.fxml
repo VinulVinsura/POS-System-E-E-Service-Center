@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="employeePane" prefHeight="664.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeFormController">
+   <children>
+      <ImageView fitHeight="888.0" fitWidth="999.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/159434207-resized.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="66.0" layoutY="498.0" onAction="#updateButtonOnAction" prefHeight="82.0" prefWidth="216.0" style="-fx-background-color: #70C198; -fx-background-radius: 10;" text="Update Account">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="labelEmployeeID" layoutX="25.0" layoutY="28.0" prefHeight="59.0" prefWidth="140.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

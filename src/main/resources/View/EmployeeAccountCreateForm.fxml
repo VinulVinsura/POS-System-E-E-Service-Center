@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeAccountCreateFormController">
+<AnchorPane fx:id="createEmmployePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeAccountCreateFormController">
    <children>
       <ImageView fx:id="texEmail" fitHeight="730.0" fitWidth="937.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -38,12 +38,20 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="633.0" layoutY="482.0" mnemonicParsing="false" onAction="#submitButtonOnAction" prefHeight="43.0" prefWidth="84.0" style="-fx-background-radius: 8;" text="Submit" />
+      <Button layoutX="633.0" layoutY="482.0" mnemonicParsing="false" onAction="#submitButtonOnAction" prefHeight="43.0" prefWidth="84.0" style="-fx-background-radius: 8;" text="Submit">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
       <Label layoutX="164.0" layoutY="441.0" prefHeight="21.0" prefWidth="84.0" text="Password*" textFill="#f5efef">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
       <TextField fx:id="texPassword" layoutX="164.0" layoutY="482.0" prefHeight="43.0" prefWidth="268.0" />
+      <Button layoutX="769.0" layoutY="482.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="43.0" prefWidth="84.0" style="-fx-background-radius: 8;" text="Back">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
