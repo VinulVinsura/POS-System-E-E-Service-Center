@@ -31,6 +31,9 @@ public class DashBoardFormController {
     public PasswordField passwordTexHidde;
     public CheckBox chekBox;
     private EmployeeBo employeeBo=new EmployeeBoImpl();
+    static String employeeID;
+    static String employeeName;
+
 
     public void initialize(){
         calulatTime();
@@ -46,13 +49,13 @@ public class DashBoardFormController {
 
 
     public void adminButtonOnAction(ActionEvent actionEvent) throws IOException {
-       if (emailTex.getText().equals("vinu@gmail") && (passwordTex.getText().equals("*8ma"))|| (passwordTexHidde.getText().equals("*8ma"))){
+       if (emailTex.getText().equals("vinu@gmail") && ((passwordTex.getText().equals("*8ma")) || (passwordTexHidde.getText().equals("*8ma")))){
            Stage stage= (Stage) pane1.getScene().getWindow();
            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/AdminDashBoardForm.fxml"))));
            stage.setTitle("Admin Form");
            stage.show();
        }else {
-           System.out.println("vinul");
+           new Alert(Alert.AlertType.ERROR,"INVALID EMAIL OR PASSWORD...").show();
        }
     }
 
@@ -60,16 +63,16 @@ public class DashBoardFormController {
         List<EmployeeDto> employeeList = employeeBo.getAllEmployee();
         boolean isFind=false;
         for (EmployeeDto dto:employeeList) {
-            System.out.println("1st");
-            if (dto.getEmail().equals(emailTex.getText()) && dto.getPassword().equals(passwordTex.getText()) && dto.getPassword().equals(passwordTexHidde.getText())){
+            if (dto.getEmail().equals(emailTex.getText()) && (dto.getPassword().equals(passwordTexHidde.getText()) || dto.getPassword().equals(passwordTex.getText()))){
                 isFind=true;
-                System.out.println("2nd");
+                employeeID=dto.getEmployeeID();
+                employeeName=dto.getEmployeeName();
                 Stage stage= (Stage)pane1.getScene().getWindow();
                 try {
                     stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/EmployeeForm.fxml"))));
                     stage.show();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    System.out.println("rantime");
                 }
             }
 
@@ -78,6 +81,8 @@ public class DashBoardFormController {
             new Alert(Alert.AlertType.ERROR,"INVALID EMAIL OR PASSWORD...").show();
         }
     }
+
+
 
     public String chekBokOnAction(ActionEvent actionEvent) {
         if (chekBox.isSelected()){

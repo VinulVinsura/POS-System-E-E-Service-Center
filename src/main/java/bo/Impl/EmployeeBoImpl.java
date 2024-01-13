@@ -39,9 +39,12 @@ public class EmployeeBoImpl implements EmployeeBo {
     }
 
     @Override
-    public boolean updateEmployee(String employeID) {
-
-        return false;
+    public boolean updateEmployee(EmployeeDto dto) {
+        return employeeDao.update(new Employee(dto.getEmployeeID(),
+                 dto.getEmployeeName(),
+                 dto.getPassword(),
+                 dto.getEmail(),
+                 dto.getPhoneNum()));
     }
 
     @Override

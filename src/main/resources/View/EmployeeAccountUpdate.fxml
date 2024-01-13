@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="665.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeAccountUpdateController">
+<AnchorPane fx:id="updatePane" prefHeight="665.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeAccountUpdateController">
    <children>
       <ImageView fitHeight="745.0" fitWidth="992.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,34 +20,54 @@
             <Font name="Bernard MT Condensed" size="30.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="texEmployeeName" layoutX="81.0" layoutY="282.0" prefHeight="51.0" prefWidth="350.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
+      <JFXTextField fx:id="texEmployeeName" focusColor="#070707" layoutX="81.0" layoutY="257.0" prefHeight="51.0" prefWidth="283.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
          <font>
             <Font size="17.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="texPassword" layoutX="334.0" layoutY="491.0" prefHeight="51.0" prefWidth="350.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
+      <JFXTextField fx:id="texPassword" focusColor="BLACK" layoutX="81.0" layoutY="498.0" prefHeight="51.0" prefWidth="283.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
          <font>
             <Font size="17.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="texEmail" layoutX="590.0" layoutY="387.0" prefHeight="51.0" prefWidth="350.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
+      <JFXTextField fx:id="texEmail" focusColor="BLACK" layoutX="509.0" layoutY="387.0" prefHeight="51.0" prefWidth="283.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
          <font>
             <Font size="17.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="texPhone" layoutX="81.0" layoutY="387.0" prefHeight="51.0" prefWidth="350.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
+      <JFXTextField fx:id="texPhone" focusColor="BLACK" layoutX="81.0" layoutY="387.0" prefHeight="51.0" prefWidth="283.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
          <font>
             <Font size="17.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="391.0" layoutY="573.0" onAction="#updateButtonOnAction" prefHeight="51.0" prefWidth="97.0" style="-fx-background-color: #A490D5; -fx-background-radius: 8;" text="Update">
+      <JFXButton layoutX="81.0" layoutY="582.0" onAction="#updateButtonOnAction" prefHeight="51.0" prefWidth="97.0" style="-fx-background-color: #A490D5; -fx-background-radius: 8;" text="Update">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lableEmployeeID" layoutX="81.0" layoutY="172.0" prefHeight="51.0" prefWidth="118.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
+      <Label fx:id="lableEmployeeID" layoutX="81.0" layoutY="138.0" prefHeight="51.0" prefWidth="118.0" style="-fx-background-color: #D6D9DC; -fx-background-radius: 10;">
          <font>
             <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="221.0" prefHeight="28.0" prefWidth="78.0" text="Name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="347.0" prefHeight="28.0" prefWidth="127.0" text="Phone Number" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="463.0" prefHeight="28.0" prefWidth="78.0" text="Password" textAlignment="CENTER" textFill="#fff9f9">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="509.0" layoutY="347.0" prefHeight="28.0" prefWidth="78.0" text="Email" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
    </children>
