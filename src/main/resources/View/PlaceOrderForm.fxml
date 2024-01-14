@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="placeOrderPane" prefHeight="560.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PlaceOrderFormController">
+   <children>
+      <ImageView fitHeight="660.0" fitWidth="1141.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/electric-background-kbnan7yvr9zg6wx6.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutY="24.0" prefHeight="65.0" prefWidth="425.0" text="       Place Order" textAlignment="CENTER" textFill="#140d0e">
+         <font>
+            <Font name="System Bold" size="44.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="texProductName" layoutX="44.0" layoutY="238.0" prefHeight="47.0" prefWidth="240.0" style="-fx-background-color: #FEF3BD; -fx-background-radius: 8;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="texEmail" layoutX="478.0" layoutY="455.0" prefHeight="47.0" prefWidth="369.0" style="-fx-background-color: #FEF3BD; -fx-background-radius: 8;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="texCustomerName" layoutX="44.0" layoutY="455.0" prefHeight="47.0" prefWidth="307.0" style="-fx-background-color: #FEF3BD; -fx-background-radius: 8;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="texDesc" layoutX="44.0" layoutY="356.0" prefHeight="47.0" prefWidth="434.0" style="-fx-background-color: #FEF3BD; -fx-background-radius: 8;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXTextField>
+      <ChoiceBox fx:id="itemChosBox" layoutX="45.0" layoutY="138.0" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #FEF3BD; -fx-background-radius: 7;">
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor>
+      </ChoiceBox>
+      <Label layoutX="44.0" layoutY="204.0" />
+      <Label layoutX="44.0" layoutY="325.0" prefHeight="31.0" prefWidth="92.0" text="Description" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="213.0" text="Product Name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="428.0" text="Customer Name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="478.0" layoutY="428.0" text="Email" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="texNumber" layoutX="44.0" layoutY="558.0" prefHeight="47.0" prefWidth="307.0" style="-fx-background-color: #FEF3BD; -fx-background-radius: 8;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="44.0" layoutY="530.0" prefHeight="25.0" prefWidth="134.0" text="Contact Number" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="900.0" layoutY="543.0" onAction="#placeButtonOnAction" prefHeight="56.0" prefWidth="82.0" style="-fx-background-color: #BED3F3; -fx-background-radius: 12;" text="OK" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="44.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Img/icons8-tick.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

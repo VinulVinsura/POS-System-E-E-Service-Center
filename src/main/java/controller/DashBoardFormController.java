@@ -6,6 +6,7 @@ import dto.EmployeeDto;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,8 +18,10 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.text.CollationElementIterator;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 public class DashBoardFormController {
@@ -33,6 +36,7 @@ public class DashBoardFormController {
     private EmployeeBo employeeBo=new EmployeeBoImpl();
     static String employeeID;
     static String employeeName;
+    private volatile boolean stop=false;
 
 
     public void initialize(){
@@ -40,8 +44,25 @@ public class DashBoardFormController {
     }
 
     private void calulatTime() {
+      /*  Thread thread=new Thread(() ->{
+            SimpleDateFormat dateFormat=new SimpleDateFormat("hh:mm:ss a");
+            while (!stop){
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                final String timeNow=dateFormat.format(new Date());
+                Platform.runLater(()->{
+                    timeLble.setText(timeNow);
+                });
+            }
+        });
+        thread.start(); */
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, actionEvent -> timeLble.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:MM:SS")))), new KeyFrame(Duration.seconds(1)));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.ZERO, actionEvent ->
+                timeLble.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss a")))), new KeyFrame(Duration.seconds(1))
+        );
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
         //live Time
