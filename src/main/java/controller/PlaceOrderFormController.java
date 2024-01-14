@@ -8,6 +8,7 @@ import bo.ItemBo;
 import bo.OrderBo;
 import com.jfoenix.controls.JFXTextField;
 import dto.CustomerDto;
+import dto.ItemDto;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
@@ -33,6 +34,11 @@ public class PlaceOrderFormController {
                 texCustomerName.getText(),
                 texEmail.getText(),
                 texNumber.getText()));
+        boolean isItemSave = itemBo.saveItem(new ItemDto("E001",
+                itemChosBox.getSelectionModel().getSelectedItem(),
+                texDesc.getText(),
+                texProductName.getText(),
+                "Pending"));
 
 
     }

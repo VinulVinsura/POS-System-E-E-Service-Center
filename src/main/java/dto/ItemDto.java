@@ -14,8 +14,7 @@ public class ItemDto {
     private String description;
     private String productName;
     private String status;
-    private String customerID;
-    private String orderID;
+
 
 
 }
