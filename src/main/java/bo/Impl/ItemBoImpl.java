@@ -10,10 +10,6 @@ public class ItemBoImpl implements ItemBo {
     private ItemDao itemDao=new ItemDaoImpl();
     @Override
     public boolean saveItem(ItemDto dto) {
-        return itemDao.save(new Item(dto.getItemCode(),
-                dto.getDescription(),
-                dto.getCatogry(),
-                dto.getProductName(),
-                dto.getStatus()));
+        return itemDao.save(dto);
     }
 }

@@ -45,7 +45,7 @@
       </JFXTextField>
       <ChoiceBox fx:id="itemChosBox" layoutX="45.0" layoutY="138.0" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #FEF3BD; -fx-background-radius: 7;">
          <cursor>
-            <Cursor fx:constant="NONE" />
+            <Cursor fx:constant="HAND" />
          </cursor>
       </ChoiceBox>
       <Label layoutX="44.0" layoutY="204.0" />

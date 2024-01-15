@@ -9,9 +9,14 @@ import bo.OrderBo;
 import com.jfoenix.controls.JFXTextField;
 import dto.CustomerDto;
 import dto.ItemDto;
+import dto.OrderDto;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class PlaceOrderFormController {
 
@@ -30,15 +35,28 @@ public class PlaceOrderFormController {
     }
 
     public void placeButtonOnAction(ActionEvent actionEvent) {
-        boolean isCustomerSave = customerBo.saveCustomer(new CustomerDto("C001",
+        boolean isCustomerSave = customerBo.saveCustomer(new CustomerDto(customerBo.generateCustomerID(),
                 texCustomerName.getText(),
                 texEmail.getText(),
                 texNumber.getText()));
+        boolean isOrderSave = orderBo.saveOrder(new OrderDto("P001",
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd")),
+                "C001",
+                DashBoardFormController.employeeID));
         boolean isItemSave = itemBo.saveItem(new ItemDto("E001",
                 itemChosBox.getSelectionModel().getSelectedItem(),
                 texDesc.getText(),
                 texProductName.getText(),
-                "Pending"));
+                "Pending",
+                "C001",
+                "P001"));
+        if (isCustomerSave && isItemSave && isOrderSave){
+            new Alert(Alert.AlertType.INFORMATION,"ORDER PLACE SUCCESSFULLY..").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"ERROR..").show();
+        }
+
+
 
 
     }

@@ -11,4 +11,6 @@ import lombok.*;
 public class OrderDto {
     private String orderId;
     private String date;
+    private String customerId;
+    private String employeeId;
 }
