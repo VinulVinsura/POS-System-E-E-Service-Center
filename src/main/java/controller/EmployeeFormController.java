@@ -76,4 +76,15 @@ public class EmployeeFormController {
             throw new RuntimeException(e);
         }
     }
+
+    public void homeButtonOnAction(ActionEvent actionEvent) {
+        Stage stage= (Stage) employeePane.getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/DashBoardForm.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+
+    }
 }

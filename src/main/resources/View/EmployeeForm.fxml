@@ -49,5 +49,15 @@
             <Image url="@../Img/icons8-mobile-order-96.png" />
          </image>
       </ImageView>
+      <JFXButton contentDisplay="CENTER" layoutX="747.0" layoutY="519.0" onAction="#homeButtonOnAction" prefHeight="61.0" prefWidth="144.0" style="-fx-background-color: #F36358; -fx-background-radius: 7;" text="    Home" textOverrun="LEADING_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="49.0" fitWidth="41.0" layoutX="755.0" layoutY="529.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/icons8-home-page-48.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

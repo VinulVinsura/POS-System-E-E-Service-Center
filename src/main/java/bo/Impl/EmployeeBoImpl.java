@@ -66,4 +66,22 @@ public class EmployeeBoImpl implements EmployeeBo {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public String forgotPassword(String email) {
+        try {
+            List<Employee> employeList = employeeDao.getAll();
+            for (Employee employee:employeList) {
+                if (employee.getEmail().equals(email)){
+                    return employee.getPassword();
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
 }

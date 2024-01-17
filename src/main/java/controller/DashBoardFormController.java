@@ -121,4 +121,9 @@ public class DashBoardFormController {
     public void chekBokOnAction2(MouseDragEvent mouseDragEvent) {
 
     }
+
+    public void forgotPasswordOnAction(ActionEvent actionEvent) {
+        String password = employeeBo.forgotPassword(emailTex.getText());
+        System.out.println(password);
+    }
 }

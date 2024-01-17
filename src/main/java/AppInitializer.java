@@ -1,8 +1,10 @@
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class AppInitializer extends Application {
@@ -18,6 +20,9 @@ public class AppInitializer extends Application {
         primaryStage.centerOnScreen(); //Dashboard center screen
         primaryStage.setResizable(false); //Dashboard can't maximize
         primaryStage.setTitle("E & E Service Center (PVT)Ltd.");
+        Image image=new Image("\\img\\logo.png"); //set Title Icon
+        primaryStage.getIcons().add(image);
+
         primaryStage.show();
     }
 }

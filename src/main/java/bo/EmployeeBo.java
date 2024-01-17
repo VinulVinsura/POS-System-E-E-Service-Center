@@ -10,4 +10,5 @@ public interface EmployeeBo {
     String generateEmployeeID();
     boolean updateEmployee(EmployeeDto dto);
     List<EmployeeDto> getAllEmployee();
+    String forgotPassword(String email);
 }
