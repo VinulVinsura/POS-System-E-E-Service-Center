@@ -11,10 +11,14 @@ import dto.CustomerDto;
 import dto.ItemDto;
 import dto.OrderDto;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -35,21 +39,24 @@ public class PlaceOrderFormController {
     }
 
     public void placeButtonOnAction(ActionEvent actionEvent) {
-        boolean isCustomerSave = customerBo.saveCustomer(new CustomerDto(customerBo.generateCustomerID(),
+        String cutomerID=customerBo.generateCustomerID();
+        String orderID=orderBo.generateOrderID();
+        String itemID = itemBo.genertItemId();
+        boolean isCustomerSave = customerBo.saveCustomer(new CustomerDto(cutomerID,
                 texCustomerName.getText(),
                 texEmail.getText(),
                 texNumber.getText()));
-        boolean isOrderSave = orderBo.saveOrder(new OrderDto("P001",
+        boolean isOrderSave = orderBo.saveOrder(new OrderDto(orderID,
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("YYYY-MM-dd")),
-                "C001",
+                cutomerID,
                 DashBoardFormController.employeeID));
-        boolean isItemSave = itemBo.saveItem(new ItemDto("E001",
+        boolean isItemSave = itemBo.saveItem(new ItemDto(itemID,
                 itemChosBox.getSelectionModel().getSelectedItem(),
                 texDesc.getText(),
                 texProductName.getText(),
                 "Pending",
-                "C001",
-                "P001"));
+                cutomerID,
+                orderID));
         if (isCustomerSave && isItemSave && isOrderSave){
             new Alert(Alert.AlertType.INFORMATION,"ORDER PLACE SUCCESSFULLY..").show();
         }else{
@@ -58,6 +65,18 @@ public class PlaceOrderFormController {
 
 
 
+
+    }
+
+    public void backButtonOnAction(ActionEvent actionEvent) {
+        System.out.println("click");
+        Stage stage=(Stage)placeOrderPane.getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/EmployeeForm.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

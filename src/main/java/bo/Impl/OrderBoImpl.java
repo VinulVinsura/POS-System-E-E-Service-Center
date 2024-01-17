@@ -14,4 +14,17 @@ public class OrderBoImpl implements OrderBo {
 
 
     }
+
+    @Override
+    public String generateOrderID() {
+        if (orderDao.getLastOrder()!=null){
+            String orderId = orderDao.getLastOrder().getOrderId();
+            int num= Integer.parseInt(orderId.split("R")[1]);
+            num++;
+            return String.format("OR%03d",num);
+        }else {
+            return "OR001";
+        }
+
+    }
 }

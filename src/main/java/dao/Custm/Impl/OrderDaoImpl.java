@@ -8,6 +8,7 @@ import entity.Employee;
 import entity.Orders;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -42,5 +43,18 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public boolean delete(String data) {
         return false;
+    }
+
+    @Override
+    public Orders getLastOrder() {
+        Session session = Hibernate.getSession();
+        Query query = session.createQuery("FROM Orders o ORDER BY o.orderId DESC");
+        List<Orders> list = query.list();
+        for (Orders order:list) {
+            return new Orders(order.getOrderId(),
+                    order.getDate());
+        }
+        return null;
+
     }
 }

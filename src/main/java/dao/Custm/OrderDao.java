@@ -5,4 +5,5 @@ import dto.OrderDto;
 import entity.Orders;
 
 public interface OrderDao extends CrudDao<OrderDto> {
+    Orders getLastOrder();
 }

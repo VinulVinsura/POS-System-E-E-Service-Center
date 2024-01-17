@@ -5,4 +5,5 @@ import dto.ItemDto;
 import entity.Item;
 
 public interface ItemDao extends CrudDao<ItemDto> {
+    Item getLastItem();
 }

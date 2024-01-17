@@ -4,4 +4,5 @@ import dto.OrderDto;
 
 public interface OrderBo {
     boolean saveOrder(OrderDto dto);
+    String generateOrderID();
 }
