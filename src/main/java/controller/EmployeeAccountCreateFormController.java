@@ -14,7 +14,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 public class EmployeeAccountCreateFormController {
     public TextField texName;
@@ -28,11 +34,12 @@ public class EmployeeAccountCreateFormController {
     public void initialize(){
         employeeID.setText(employeeBo.generateEmployeeID());
     }
-    public void submitButtonOnAction(ActionEvent actionEvent) {
+    public void submitButtonOnAction(ActionEvent actionEvent) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        String encryptPassword = employeeBo.encrypt(texPassword.getText());
 
         boolean isSave= employeeBo.saveEmployee(new EmployeeDto(employeeBo.generateEmployeeID(),
                     texName.getText(),
-                    texPassword.getText(),
+                    encryptPassword,
                     texEmail2.getText(),
                     texPhone.getText()));
 
