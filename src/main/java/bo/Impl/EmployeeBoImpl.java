@@ -110,6 +110,18 @@ public class EmployeeBoImpl implements EmployeeBo {
 
     }
 
+    @Override
+    public String decrypt(String cipherText) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        byte[] secretkey= stringToByteArray(stringKey);
+        System.out.println(secretkey);
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        SecretKeySpec key = new SecretKeySpec(secretkey, "AES");
+        cipher.init(Cipher.DECRYPT_MODE,key,new IvParameterSpec(IV));
+        byte[] plainText = cipher.doFinal(Base64.getDecoder().decode(cipherText));
+        return new String(plainText);
+
+    }
+
     private byte[] stringToByteArray(String stringKey) {
         String[] keyFragments = stringKey.split(" ");
 

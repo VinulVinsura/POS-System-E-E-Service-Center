@@ -17,7 +17,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class EmployeeAccountUpdateController {
@@ -35,14 +41,15 @@ public class EmployeeAccountUpdateController {
 
 
 
-    public void initialize(){
+    public void initialize() throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
          lableEmployeeID.setText(id);
         List<EmployeeDto> employeeList = employeeBo.getAllEmployee();
         for (EmployeeDto dto:employeeList) {
+            String decryptPassword = employeeBo.decrypt(dto.getPassword());
             if (dto.getEmployeeID().equals(id)) {
                 texEmployeeName.setText(dto.getEmployeeName());
                 texEmail.setText(dto.getEmail());
-                texPassword.setText(dto.getPassword());
+                texPassword.setText(decryptPassword);
                 texPhone.setText(dto.getPhoneNum());
             }
         }
@@ -50,10 +57,11 @@ public class EmployeeAccountUpdateController {
     }
 
 
-    public void updateButtonOnAction(ActionEvent actionEvent) {
+    public void updateButtonOnAction(ActionEvent actionEvent) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        String encryptPasswod = employeeBo.encrypt(texPassword.getText());
         boolean isUpdate = employeeBo.updateEmployee(new EmployeeDto(id,
                 texEmployeeName.getText(),
-                texPassword.getText(),
+                encryptPasswod,
                 texEmail.getText(),
                 texPhone.getText()));
         if (isUpdate){

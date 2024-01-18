@@ -16,7 +16,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.text.CollationElementIterator;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -80,11 +86,13 @@ public class DashBoardFormController {
        }
     }
 
-    public void emplyeeButtonOnAction(ActionEvent actionEvent) {
+    public void emplyeeButtonOnAction(ActionEvent actionEvent) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         List<EmployeeDto> employeeList = employeeBo.getAllEmployee();
         boolean isFind=false;
         for (EmployeeDto dto:employeeList) {
-            if (dto.getEmail().equals(emailTex.getText()) && (dto.getPassword().equals(passwordTexHidde.getText()) || dto.getPassword().equals(passwordTex.getText()))){
+            System.out.println("vinul");
+            String decryptPassword = employeeBo.decrypt(dto.getPassword());
+            if (dto.getEmail().equals(emailTex.getText()) && (decryptPassword.equals(passwordTexHidde.getText()) || decryptPassword.equals(passwordTex.getText()))){
                 isFind=true;
                 employeeID=dto.getEmployeeID();
                 employeeName=dto.getEmployeeName();

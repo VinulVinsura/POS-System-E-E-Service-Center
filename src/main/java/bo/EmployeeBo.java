@@ -17,5 +17,6 @@ public interface EmployeeBo {
     boolean updateEmployee(EmployeeDto dto);
     List<EmployeeDto> getAllEmployee();
     String forgotPassword(String email);
-    String encrypt (String keyWord) throws NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeyException;
+    String encrypt (String input) throws NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, InvalidKeyException;
+    String decrypt(String cipherText) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException;
 }
